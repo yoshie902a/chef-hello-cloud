@@ -205,7 +205,8 @@ fi
 echo "Downloading Chef $version for ${platform}..."
 
 #url="http://www.opscode.com/chef/download?v=${version}&prerelease=${prerelease}&p=${platform}&pv=${platform_version}&m=${machine}"
-url="http://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chef_11.6.0-1.ubuntu.12.04_amd64.deb"
+#url="http://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chef_11.6.0-1.ubuntu.12.04_amd64.deb"
+url="http://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-11.6.0.rc.2-1.el6.x86_64.rpm"
 
 tmp_dir=$(mktemp -d -t tmp.XXXXXXXX || echo "/tmp")
 
