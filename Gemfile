@@ -8,3 +8,5 @@ gem "knife-ec2"
 
 gem "ffi", "~> 1.1.5"
 gem "vagrant", "~> 1.0.0"
+
+gem 'berkshelf'

@@ -32,14 +32,15 @@ namespace :server do
     ["NAME", "ROLE"].each { |argument| ( puts("[!] You need to specify #{argument}"); exit(1) ) unless ENV[argument] }
 
     start  = Time.now
-    flavor = ENV["FLAVOR"] || "c1.xlarge"
+    flavor = ENV["FLAVOR"] || "t1.micro"            # "c1.xlarge"
+    distro = ENV["DISTRO"] || "ubuntu12.04-gems"    # "chef-full" # "amazon"
 
     sh "knife ec2 server create --node-name #{ENV["NAME"]} \
-                                    --ssh-user ec2-user \
+                                    --ssh-user ubuntu \
                                     --run-list 'role[#{ENV["ROLE"]}]' \
                                     --groups #{ENV["ROLE"]} \
                                     --flavor #{flavor} \
-                                    --distro amazon"
+                                    --distro #{distro}"
 
     node     = JSON.parse(`knife node show #{ENV["NAME"]} --format json --attribute ec2`) rescue nil
     duration = ((Time.now-start).to_i/60.0).round

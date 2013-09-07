@@ -42,8 +42,9 @@ current_dir = File.dirname(__FILE__)
 log_level                :info
 log_location             STDOUT
 
-node_name                ENV['USER']
-client_key               "#{ENV['HOME']}/.chef/#{ENV['USER']}.pem"
+#node_name                ENV['USER']
+node_name                ENV['CHEF_NODE_NAME']
+client_key               ENV['CHEF_CLIENT_KEY']
 validation_client_name   "#{ENV['CHEF_ORGANIZATION']}-validator"
 validation_key           ENV['CHEF_ORGANIZATION_KEY']
 chef_server_url          "https://api.opscode.com/organizations/#{ENV['CHEF_ORGANIZATION']}"
@@ -56,10 +57,12 @@ knife[:aws_secret_access_key] = ENV['AWS_SECRET_ACCESS_KEY']
 knife[:aws_ssh_key_id]        = "#{ENV['CHEF_ORGANIZATION']}-ec2"
 knife[:region]                = 'us-east-1'
 
-knife[:image]                 = 'ami-aecd60c7' # (Amazon Linux 2012.03)
-knife[:ssh_user]              = 'ec2-user'
+#knife[:image]                 = 'ami-aecd60c7' # (Amazon Linux 2012.03)
+knife[:image]                 = 'ami-d0f89fb9' # (Ubuntu 12.04 LTS US-east)
+#knife[:ssh_user]              = 'ec2-user'
+knife[:ssh_user]              = 'ubuntu'
 knife[:ssh_attribute]         = 'ec2.public_hostname'
 knife[:use_sudo]              = true
 knife[:ssh_identity_file]     = ENV['SSH_IDENTITY_FILE']
 knife[:no_host_key_verify]    = true
-knife[:bootstrap_version]     = '10.14.0'
+knife[:bootstrap_version]     = '11.6'
