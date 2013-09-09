@@ -33,7 +33,7 @@ namespace :server do
 
     start     = Time.now
     flavor    = ENV["FLAVOR"]   || "t1.micro"            # "c1.xlarge"
-    distro    = ENV["DISTRO"]   || "amazon_v2"           # "ubuntu12.04-gems"    # "chef-full" # "amazon"
+    distro    = ENV["DISTRO"]   || "amazon"           # "ubuntu12.04-gems"    # "chef-full" # "amazon"
     ssh_user  = ENV['SSH_USER'] || 'ec2-user'            # 'ec2-user' 'ubuntu'
 
     sh "knife ec2 server create --node-name #{ENV["NAME"]} \

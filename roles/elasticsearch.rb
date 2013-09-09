@@ -4,8 +4,8 @@ description "Configuration for elasticsearch nodes"
 run_list    "role[base]",
             "recipe[nginx]",
             "recipe[elasticsearch]",
-            "recipe[elasticsearch::plugin_aws]",
-            "recipe[elasticsearch::proxy_nginx]",
+            "recipe[elasticsearch::aws]",
+            "recipe[elasticsearch::proxy]",
             "recipe[monitoring]",
             "recipe[monitoring::nginx]",
             "recipe[monitoring::elasticsearch]"

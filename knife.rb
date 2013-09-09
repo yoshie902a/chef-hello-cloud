@@ -65,4 +65,4 @@ knife[:ssh_attribute]         = 'ec2.public_hostname'
 knife[:use_sudo]              = true
 knife[:ssh_identity_file]     = ENV['SSH_IDENTITY_FILE']
 knife[:no_host_key_verify]    = true
-knife[:bootstrap_version]     = '11.6'
+knife[:bootstrap_version]     = '11.6.0'  #version needs x.y.z not just x.y
