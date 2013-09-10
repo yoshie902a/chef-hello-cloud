@@ -10,5 +10,3 @@ Gemfile.lock
 !.chef/tmp/.gitignore
 !.chef/bootstrap
 
-site-cookbooks/*
-!site-cookbooks/.gitignore
