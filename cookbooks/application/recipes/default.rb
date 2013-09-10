@@ -41,7 +41,7 @@ end
 # Store current revision as "previous_revision"
 #
 ruby_block "save previous revision" do
-  block { node.application[:previous_revision] = current_revision_sha }
+  block { node.application.set[:previous_revision] = current_revision_sha }
 end
 
 # Create user and group
@@ -99,7 +99,7 @@ end
 # Save current revision to node
 #
 ruby_block "save current revision" do
-  block { node.application[:current_revision] = current_revision_sha }
+  block { node.application.set[:current_revision] = current_revision_sha }
 end
 
 # Delete default Nginx configuration files
